@@ -1,12 +1,28 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+    <WelcomeText v-on:Login="goLog" v-on:SignUp="goSign" />
   </div>
 </template>
+
+<script>
+import WelcomeText from "./components/WelcomeText";
+
+export default {
+  name: "app",
+  methods: {
+    goLog() {
+      this.router.push("/about");
+    },
+    goSign() {
+      this.router.push("/about");
+    }
+  },
+
+  components: {
+    WelcomeText
+  }
+};
+</script>
 
 <style lang="scss">
 #app {
