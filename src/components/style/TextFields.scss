@@ -1,0 +1,24 @@
+$text: #2c2841;
+
+//button:hover {}
+
+input {
+  display: grid;
+  grid-template-rows: 100% 100%;
+  gap: 0.29em;
+  margin-left: 25%;
+  margin-bottom: 5%;
+  
+  width: 50%;
+  height: 2.7em;
+  text-align: center;
+  
+  background: $fill;
+  color: $text;
+  border: none;
+  border-radius: 25px 25px 25px 0px;
+}
+
+.container {
+  box-shadow: 0.5em·0 0.5em·0 6px #00000062;
+}

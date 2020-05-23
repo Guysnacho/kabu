@@ -9,7 +9,7 @@
       </div>
 
       <div id="signup">
-        <button @click="$emit('sign')">SignUp</button>
+        <button @click="$emit('sign')">Sign Up</button>
       </div>
     </div>
   </div>

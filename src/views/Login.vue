@@ -1,24 +1,55 @@
 <template>
   <div class="login">
-    <h1>This is an about page</h1>
+    <img id="logo" src="@/assets/logo.png" />
+    <form class="entries" action>
+      <TextInput
+        class="boxes"
+        :inType="tel"
+        :placehold="'Phone Number'"
+        :reg="'[0-9]{3}[0-9]{3}[0-9]{4}'"
+      />
+      <TextInput class="boxes" :inType="password" :placehold="'Password'" />
+      <Submit />
+    </form>
   </div>
 </template>
 
 <script>
-export default {};
+import TextInput from "../components/TextInput";
+import Submit from "../components/Submit";
+
+export default {
+  name: "login",
+  data() {
+    return {};
+  },
+  components: {
+    TextInput,
+    Submit
+  }
+};
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .login {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  background-color: #2c3e50;
+  display: grid;
+  grid-template-columns: 3;
+  grid-template-rows: 10;
 }
 
-h1 {
-  color: red;
+#logo {
+  grid-column: 2;
+  height: 15em;
+}
+
+form {
+  margin-top: 20%;
+  grid-template-columns: 3;
+  gap: 2em;
+}
+
+.entries {
+  grid-row: 2;
+  grid-column: 1/3;
 }
 </style>

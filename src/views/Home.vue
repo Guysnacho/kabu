@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <WelcomeText v-if="home" v-on:login="login" />
+    <WelcomeText v-on:login="login" />
   </div>
 </template>
 
@@ -11,9 +11,7 @@ export default {
   name: "Home",
 
   data() {
-    return {
-      home: true
-    };
+    return {};
   },
 
   methods: {
