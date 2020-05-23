@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <!--Using passed props   <p>{{msg}}</p> -->
-    <img src="../assets/logo.png" alt="Logo image" />
+    <img src="../assets/logo.png" alt="Kabu logo" />
 
     <div id="buttons">
       <div id="login">

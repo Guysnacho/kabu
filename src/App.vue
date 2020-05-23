@@ -1,30 +1,23 @@
 <template>
   <div id="app">
-    <WelcomeText v-if="home" v-on:login="login" />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import WelcomeText from "./components/WelcomeText";
-
 export default {
   name: "app",
 
   data() {
-    return {
-      home: true
-    };
+    return {};
   },
 
-  methods: {
-    login() {
-      this.$router.push({ path: "/login" });
-      this.home = !this.home;
-    }
-  },
+  methods: {},
 
-  components: {
-    WelcomeText
+  components: {},
+
+  created() {
+    this.$router.push("/");
   }
 };
 </script>

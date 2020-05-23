@@ -5,7 +5,6 @@
 </template>
 
 <script>
-console.log("Testing 123");
 export default {};
 </script>
 
