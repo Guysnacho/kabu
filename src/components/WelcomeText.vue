@@ -2,9 +2,15 @@
   <div class="hello">
     <!--Using passed props   <p>{{msg}}</p> -->
     <img src="../assets/logo.png" alt="Logo image" />
+
     <div id="buttons">
-      <button @click="goLog">Login</button>
-      <button @click="goSign">SignUp</button>
+      <div id="login">
+        <button @click="$emit('login')">Login</button>
+      </div>
+
+      <div id="signup">
+        <button @click="$emit('sign')">SignUp</button>
+      </div>
     </div>
   </div>
 </template>
@@ -12,14 +18,7 @@
 <script>
 export default {
   name: "WelcomeText",
-  methods: {
-    goLog() {
-      this.$emit("Login");
-    },
-    goSign() {
-      this.$emit("Signup");
-    }
-  },
+  methods: {},
 
   props: {
     // Unused props      msg: String

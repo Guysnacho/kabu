@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <WelcomeText v-on:Login="goLog" v-on:SignUp="goSign" />
+    <WelcomeText v-if="home" v-on:login="login" />
   </div>
 </template>
 
@@ -9,12 +9,17 @@ import WelcomeText from "./components/WelcomeText";
 
 export default {
   name: "app",
+
+  data() {
+    return {
+      home: true
+    };
+  },
+
   methods: {
-    goLog() {
-      this.router.push("/about");
-    },
-    goSign() {
-      this.router.push("/about");
+    login() {
+      this.$router.push({ path: "/login" });
+      this.home = !this.home;
     }
   },
 
