@@ -1,3 +1,6 @@
+/* - TODO - Integrate Vuelidate into field components conditionally. Address
+boxes don't need to check for numbers and such Probably don't need to import it
+here then, lower into the component */
 <template>
   <div class="login">
     <img id="logo" src="@/assets/logo.png" />
@@ -17,6 +20,7 @@
 </template>
 
 <script>
+//import Vuelidate from "vuelidate"
 import TextInput from "../components/TextInput";
 import Submit from "../components/Submit";
 
