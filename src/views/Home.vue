@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <WelcomeText v-on:login="login" />
+    <WelcomeText v-on:login="login" v-on:sign="sign" />
   </div>
 </template>
 
@@ -17,6 +17,11 @@ export default {
   methods: {
     login() {
       this.$router.push({ path: "/login" });
+      this.home = !this.home;
+    },
+
+    sign() {
+      this.$router.push({ path: "/sign" });
       this.home = !this.home;
     }
   },
