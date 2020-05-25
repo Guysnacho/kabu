@@ -1,53 +1,38 @@
 <template>
-  <div id="app">
-    <router-view></router-view>
-  </div>
+  <v-app>
+    <v-app-bar app color="lightaccent" dark>
+      <div class="d-flex align-center">
+        <v-img
+          alt="Kabu Logo"
+          class="shrink mr-2"
+          contain
+          src="./assets/icon.png"
+          transition="scale-transition"
+          width="40"
+        />
+      </div>
+
+      <v-spacer></v-spacer>
+      <v-btn href="#" text>
+        <span class="mr-2">Kabu Kabu</span>
+        <v-icon>mdi-open-in-new</v-icon>
+      </v-btn>
+    </v-app-bar>
+
+    <v-content>
+      <router-view></router-view>
+    </v-content>
+
+    <v-footer></v-footer>
+  </v-app>
 </template>
 
 <script>
 export default {
-  name: "app",
-
-  data() {
-    return {};
-  },
-
-  methods: {},
+  name: "App",
 
   components: {},
 
-  created() {
-    this.$router.push("/");
-  }
+  data: () => ({})
 };
 </script>
-
-<style lang="scss">
-@import url("https://fonts.googleapis.com/css2?family=Jost&display=swap");
-
-body {
-  text-decoration: none;
-  background-color: #f5f2f5;
-  font-family: "Jost", Helvetica, Arial, sans-serif;
-}
-
-#app {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style>
