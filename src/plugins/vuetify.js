@@ -19,7 +19,7 @@ export default new Vuetify({
         secondary: "#F5F2F5",
         lightaccent: "#B85C5A",
         darkaccent: "#C2A459",
-        darkShades: "#2C2841"
+        darkshades: "#2C2841"
       }
     }
   }

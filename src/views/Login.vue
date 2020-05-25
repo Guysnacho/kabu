@@ -7,10 +7,28 @@
           src="../assets/logo.png"
           contain="false"
           min-width="10%"
-          max-width="50%"
+          max-width="45%"
           id="logo"
         />
       </v-row>
+
+      <v-form lazy-validation="true" ref="form">
+        <v-text-field
+          v-model="email"
+          :rules="emailRules"
+          label="Email"
+          required
+        ></v-text-field>
+
+        <v-btn
+          class="ma-10"
+          rounded="true"
+          color="primary"
+          width="20%"
+          @click="validate"
+          >Login</v-btn
+        >
+      </v-form>
     </v-content>
   </v-app>
 </template>
@@ -21,22 +39,19 @@
 export default {
   name: "Home",
 
-  data() {
-    return {};
-  },
+  data: () => ({
+    valid: true,
+    email: "",
+    emailRules: [
+      v => !!v || "E-mail is required",
+      v => /.+@.+\..+/.test(v) || "E-mail must be valid"
+    ]
+  }),
 
   methods: {
-    login() {
-      this.$router.push({ path: "/login" });
-      this.home = !this.home;
-    },
-
-    sign() {
-      this.$router.push({ path: "/sign" });
-      this.home = !this.home;
+    validate() {
+      this.$refs.form.validate();
     }
-  },
-
-  components: {}
+  }
 };
 </script>
