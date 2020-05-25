@@ -7,42 +7,80 @@
           src="../assets/logo.png"
           contain="false"
           min-width="10%"
-          max-width="50%"
+          max-width="45%"
           id="logo"
         />
       </v-row>
 
-      <v-row justify="center"></v-row>
+      <v-form lazy-validation="true" ref="form">
+        <v-col>
+          <v-text-field
+            v-model="name"
+            :rules="nameRules"
+            label="Full Name"
+            required
+          ></v-text-field>
+        </v-col>
 
-      <v-row justify="center">
-        <v-text-field placeholder="Type here"></v-text-field>
-      </v-row>
+        <v-col>
+          <v-text-field
+            v-model="email"
+            :rules="emailRules"
+            label="Email"
+            required
+          ></v-text-field>
+        </v-col>
+
+        <v-col>
+          <v-text-field
+            v-model="phone"
+            :rules="phoneRules"
+            label="Phone Number"
+            required
+          ></v-text-field>
+        </v-col>
+
+        <v-btn
+          class="ma-10"
+          rounded="true"
+          color="primary"
+          width="20%"
+          @click="validate"
+          v-on="validate"
+          >Login</v-btn
+        >
+      </v-form>
     </v-content>
   </v-app>
 </template>
 
 <script>
 // @ is an alias to /src
-
 export default {
   name: "Home",
 
-  data() {
-    return {};
-  },
+  data: () => ({
+    valid: true,
+    name: "",
+    nameRules: [v => !!v || "Name is required"],
+
+    email: "",
+    emailRules: [
+      v => !!v || "E-mail is required",
+      v => /.+@.+\..+/.test(v) || "E-mail must be valid"
+    ],
+
+    phone: "",
+    phoneRules: [v => !!v || "Phone number is required"]
+  }),
 
   methods: {
-    login() {
-      this.$router.push({ path: "/login" });
-      this.home = !this.home;
-    },
-
-    sign() {
-      this.$router.push({ path: "/sign" });
-      this.home = !this.home;
+    validate() {
+      if (this.$refs.form.validate()) {
+        //submit details to server
+        //go to the next page
+      }
     }
-  },
-
-  components: {}
+  }
 };
 </script>

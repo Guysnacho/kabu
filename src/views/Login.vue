@@ -18,6 +18,7 @@
           :rules="emailRules"
           label="Email"
           required
+          full-width="60%"
         ></v-text-field>
 
         <v-btn
