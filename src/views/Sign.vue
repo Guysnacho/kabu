@@ -47,7 +47,7 @@
           width="20%"
           @click="validate"
           v-on="validate"
-          >Login</v-btn
+          >Join Kabu!</v-btn
         >
       </v-form>
     </v-content>
