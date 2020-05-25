@@ -11,23 +11,6 @@
           id="logo"
         />
       </v-row>
-
-      <v-row justify="center">
-        <v-btn
-          class="ma-10"
-          rounded="true"
-          color="primary"
-          width="20%"
-          click="login"
-          >Login</v-btn
-        >
-      </v-row>
-
-      <v-row justify="center">
-        <v-btn rounded="true" color="primary" width="20%" click="login"
-          >Sign Up</v-btn
-        >
-      </v-row>
     </v-content>
   </v-app>
 </template>

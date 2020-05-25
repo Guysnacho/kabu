@@ -12,21 +12,10 @@
         />
       </v-row>
 
-      <v-row justify="center">
-        <v-btn
-          class="ma-10"
-          rounded="true"
-          color="primary"
-          width="20%"
-          click="login"
-          >Login</v-btn
-        >
-      </v-row>
+      <v-row justify="center"></v-row>
 
       <v-row justify="center">
-        <v-btn rounded="true" color="primary" width="20%" click="login"
-          >Sign Up</v-btn
-        >
+        <v-text-field placeholder="Type here"></v-text-field>
       </v-row>
     </v-content>
   </v-app>
