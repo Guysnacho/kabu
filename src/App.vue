@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app color="primary" dark>
+    <v-app-bar app color="lightaccent" dark>
       <div class="d-flex align-center">
         <v-img
           alt="Kabu Logo"
@@ -22,6 +22,8 @@
     <v-content>
       <router-view></router-view>
     </v-content>
+
+    <v-footer></v-footer>
   </v-app>
 </template>
 
