@@ -1,12 +1,12 @@
 <template>
-  <div class="home">
-    <WelcomeText v-on:login="login" v-on:sign="sign" />
-  </div>
+  <v-app>
+    <v-content> </v-content>
+  </v-app>
 </template>
 
 <script>
 // @ is an alias to /src
-import WelcomeText from "../components/WelcomeText";
+
 export default {
   name: "Home",
 
@@ -26,8 +26,6 @@ export default {
     }
   },
 
-  components: {
-    WelcomeText
-  }
+  components: {}
 };
 </script>
