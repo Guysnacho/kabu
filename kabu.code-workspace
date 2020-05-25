@@ -2,7 +2,9 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "..\\Kabu Assets"
 		}
-	],
-	"settings": {}
+	]
 }
