@@ -1,25 +1,31 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import { firestorePlugin } from "vuefire";
 
 Vue.use(Vuex);
+Vue.use(firestorePlugin);
 
 export default new Vuex.Store({
   state: {
     loadingStatus: "notLoading",
-    goLogin: false,
-    goSign: false
+    user: {
+      id: "testing123",
+      address: ""
+    }
   },
 
   mutations: {
-    /*     GOLOGIN = (state) => { state.goLogin = false ;},
-    GOSIGN = (state) => { state.goSign = true; }
- */
+    /* LOGIN = (state) => { state.goLogin = false ;},
+    GOSIGN = (state) => { state.goSign = true; } */
   },
 
   actions: {
-    /*     goToLogin = (context) => { context.commit('GOLOGIN'); },
-    goToSignUp = (context) => { context.commit('GOLOGIN'); }
- */
+    goToLogin: context => {
+      context.commit("GOLOGIN");
+    },
+    goToSignUp: context => {
+      context.commit("GOLOGIN");
+    }
   },
 
   modules: {}
