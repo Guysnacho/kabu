@@ -21,6 +21,15 @@
           full-width="60%"
         ></v-text-field>
 
+        <v-text-field
+          v-model="password"
+          :rules="passRules"
+          label="Password"
+          type="password"
+          required
+          full-width="60%"
+        ></v-text-field>
+
         <v-btn
           class="ma-10"
           rounded="true"
@@ -46,6 +55,12 @@ export default {
     emailRules: [
       v => !!v || "E-mail is required",
       v => /.+@.+\..+/.test(v) || "E-mail must be valid"
+    ],
+
+    password: "",
+    passRules: [
+      v => !!v || "Password is required",
+      v => v.length >= 4 || "Password must be longer than 4 characters"
     ]
   }),
 

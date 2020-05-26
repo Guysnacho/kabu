@@ -12,12 +12,13 @@
         />
       </v-row>
 
-      <v-form lazy-validation="true" ref="form">
+      <v-form lazy-validation ref="form">
         <v-col>
           <v-text-field
             v-model="name"
             :rules="nameRules"
             label="Full Name"
+            type="name"
             required
           ></v-text-field>
         </v-col>
@@ -27,15 +28,29 @@
             v-model="email"
             :rules="emailRules"
             label="Email"
+            type="email"
             required
           ></v-text-field>
         </v-col>
 
         <v-col>
           <v-text-field
-            v-model="phone"
-            :rules="phoneRules"
-            label="Phone Number"
+            v-model="password"
+            :rules="passRules"
+            label="Password"
+            type="password"
+            hint="At least 7 characters"
+            counter=""
+            required
+          ></v-text-field>
+        </v-col>
+
+        <v-col>
+          <v-text-field
+            v-model="confirm"
+            :rules="confirmRules.concat(passCheck)"
+            label="Confirm password"
+            type="password"
             required
           ></v-text-field>
         </v-col>
@@ -70,8 +85,17 @@ export default {
       v => /.+@.+\..+/.test(v) || "E-mail must be valid"
     ],
 
-    phone: "",
-    phoneRules: [v => !!v || "Phone number is required"]
+    password: "",
+    confirm: "",
+    passRules: [
+      v => !!v || "Password is required",
+      v => v.length >= 8 || "Password must be at least than 8 characters"
+    ],
+
+    confirmRules: [
+      v => !!v || "Password is required",
+      v => v.length >= 8 || "Password must be valid"
+    ]
   }),
 
   methods: {
@@ -80,6 +104,10 @@ export default {
         //submit details to server
         //go to the next page
       }
+    },
+    passCheck(value) {
+      // eslint-disable-next-line
+      return this.password == value || "Password is not identical";
     }
   }
 };
