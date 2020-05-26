@@ -17,10 +17,10 @@ export default new Vuex.Store({
   },
 
   mutations: {
-    LOGIN(email, password) {
+    LOGIN(state, payload) {
       firebase
         .auth()
-        .signInWithEmailAndPassword(email, password)
+        .signInWithEmailAndPassword(payload.email, payload.password)
         .catch(function(error) {
           // Handle Errors here.
           var errorCode = error.code;
@@ -28,11 +28,11 @@ export default new Vuex.Store({
           console.log(errorCode + errorMessage);
         });
     },
-    SIGN(email, password) {
-      this.state.props.email = email;
+    SIGN(state, payload) {
+      this.state.props.email = payload.email;
       firebase
         .auth()
-        .createUserWithEmailAndPassword(email, password)
+        .createUserWithEmailAndPassword(payload.email, payload.password)
         .catch(function(error) {
           // Handle Errors here.
           var errorCode = error.code;
@@ -49,6 +49,7 @@ export default new Vuex.Store({
           state.props.name = state.user.name;
           state.props.email = state.user.email;
           state.props.uid = state.user.uid;
+          state.authed = true;
         } else {
           // No user is signed in.
           console.log("User not signed in");
@@ -61,23 +62,23 @@ export default new Vuex.Store({
   },
 
   actions: {
-    loginToApp: context => {
-      context.commit("LOGIN, ");
+    loginToApp(context) {
+      context.commit("LOGIN");
     },
-    signUp: context => {
+    signUp(context) {
       context.commit("SIGN");
     },
-    checkUser: context => {
-      context.commit("CHANGESTATE, state");
+    checkUser(context) {
+      context.commit("CHANGESTATE", context);
     },
-    setAuth: context => {
-      context.commit("CHANGEAUTH, state");
+    setAuth(context) {
+      context.commit("CHANGEAUTH");
     }
   },
 
   getters: {
-    getAuth: () => {
-      return this.store.authed;
+    getAuth: state => {
+      return state.authed;
     }
   }
 });

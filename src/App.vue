@@ -44,7 +44,7 @@ export default {
       this.$router.replace("/");
     },
     Authed() {
-      this.store.getAuth();
+      return this.$store.getters.getAuth;
     }
   }
 };
