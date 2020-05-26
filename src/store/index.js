@@ -8,6 +8,7 @@ Vue.use(Vuex, firestorePlugin);
 export default new Vuex.Store({
   state: {
     localuser: "",
+    authed: false,
     props: {
       name: "",
       email: "",
@@ -53,6 +54,9 @@ export default new Vuex.Store({
           console.log("User not signed in");
         }
       });
+    },
+    CHANGEAUTH(state) {
+      state.authed = !state.authed;
     }
   },
 
@@ -65,6 +69,15 @@ export default new Vuex.Store({
     },
     checkUser: context => {
       context.commit("CHANGESTATE, state");
+    },
+    setAuth: context => {
+      context.commit("CHANGEAUTH, state");
+    }
+  },
+
+  getters: {
+    getAuth: () => {
+      return this.store.authed;
     }
   }
 });

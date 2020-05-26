@@ -74,7 +74,9 @@ export default {
   methods: {
     validate() {
       if (this.$refs.form.validate()) {
-        this.router.replace("Home");
+        //Authenticate and login
+        this.store.setAuth(this.store);
+        this.$router.replace("/Home");
       } else {
         console.log("Login Error");
       }
