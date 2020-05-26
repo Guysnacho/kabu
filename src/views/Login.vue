@@ -73,9 +73,11 @@ export default {
 
   methods: {
     validate() {
-      if (this.$refs.form.validate())
-        //this.router.replace(Main);
-        console.log("done");
+      if (this.$refs.form.validate()) {
+        this.router.replace("Home");
+      } else {
+        console.log("Login Error");
+      }
     }
   }
 };
