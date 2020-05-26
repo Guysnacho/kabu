@@ -13,13 +13,15 @@
       </v-row>
 
       <v-row justify="center">
-        <v-btn class="ma-10" rounded color="primary" width="20%" @click="login"
+        <v-btn class="ma-10" rounded color="primary" width="35%" @click="login"
           >Login</v-btn
         >
       </v-row>
 
       <v-row justify="center">
-        <v-btn rounded color="primary" width="20%" @click="sign">Sign Up</v-btn>
+        <v-btn class="mt-5" rounded color="primary" width="35%" @click="sign"
+          >Sign Up</v-btn
+        >
       </v-row>
     </v-content>
   </v-app>

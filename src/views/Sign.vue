@@ -40,7 +40,7 @@
             label="Password"
             type="password"
             hint="At least 7 characters"
-            counter=""
+            counter
             required
           ></v-text-field>
         </v-col>
@@ -55,15 +55,17 @@
           ></v-text-field>
         </v-col>
 
-        <v-btn
-          class="ma-10"
-          rounded
-          color="primary"
-          width="20%"
-          @click="validate"
-          type="submit"
-          >Join Kabu!</v-btn
-        >
+        <v-row justify="center">
+          <v-btn
+            class="ma-10"
+            rounded
+            color="primary"
+            width="20%"
+            @click="validate"
+            type="submit"
+            >Join Kabu!</v-btn
+          >
+        </v-row>
       </v-form>
     </v-content>
   </v-app>
@@ -113,7 +115,7 @@ export default {
     },
     passCheck(value) {
       // eslint-disable-next-line
-      return this.user.password === value ;
+      return this.user.password === value;
     }
   }
 };
