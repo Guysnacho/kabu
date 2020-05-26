@@ -15,24 +15,32 @@
       <v-row justify="center">
         <v-form lazy-validation ref="form" @submit.prevent="validate">
           <v-text-field
-            v-model="email"
+            v-model="user.email"
             :rules="emailRules"
             label="Email"
-            type="email"
             required
             full-width
+            type="email"
+            id="email"
           ></v-text-field>
 
           <v-text-field
-            v-model="password"
+            v-model="user.password"
             :rules="passRules"
             label="Password"
             type="password"
             required
             full-width
+            id="current-password"
           ></v-text-field>
 
-          <v-btn class="mt-10" rounded color="primary" block @click="validate"
+          <v-btn
+            class="mt-10"
+            rounded
+            color="primary"
+            block
+            @click="validate"
+            type="submit"
             >Login</v-btn
           >
         </v-form>
@@ -48,17 +56,18 @@ export default {
   name: "Home",
 
   data: () => ({
-    valid: true,
-    email: "",
+    user: {
+      email: "",
+      password: ""
+    },
     emailRules: [
       v => !!v || "E-mail is required",
       v => /.+@.+\..+/.test(v) || "E-mail must be valid"
     ],
 
-    password: "",
     passRules: [
       v => !!v || "Password is required",
-      v => v.length >= 4 || "Password must be longer than 4 characters"
+      v => v.length >= 8 || "Must be at least than 8 characters"
     ]
   }),
 
