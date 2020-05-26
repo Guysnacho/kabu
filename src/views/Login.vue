@@ -12,33 +12,34 @@
         />
       </v-row>
 
-      <v-form lazy-validation="true" ref="form">
-        <v-text-field
-          v-model="email"
-          :rules="emailRules"
-          label="Email"
-          required
-          full-width="60%"
-        ></v-text-field>
+      <v-row justify="center">
+        <v-form lazy-validation="true" ref="form">
+          <v-text-field
+            v-model="email"
+            :rules="emailRules"
+            label="Email"
+            required
+          ></v-text-field>
 
-        <v-text-field
-          v-model="password"
-          :rules="passRules"
-          label="Password"
-          type="password"
-          required
-          full-width="60%"
-        ></v-text-field>
+          <v-text-field
+            v-model="password"
+            :rules="passRules"
+            label="Password"
+            type="password"
+            required
+            full-width="60%"
+          ></v-text-field>
 
-        <v-btn
-          class="ma-10"
-          rounded="true"
-          color="primary"
-          width="20%"
-          @click="validate"
-          >Login</v-btn
-        >
-      </v-form>
+          <v-btn
+            class="ma-10"
+            rounded
+            color="primary"
+            width="20%"
+            @click="validate"
+            >Login</v-btn
+          >
+        </v-form>
+      </v-row>
     </v-content>
   </v-app>
 </template>
