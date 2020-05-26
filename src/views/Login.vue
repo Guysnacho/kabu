@@ -5,7 +5,7 @@
         <v-img
           alt="Kabu logo"
           src="../assets/logo.png"
-          contain="false"
+          contain
           min-width="10%"
           max-width="45%"
           id="logo"
@@ -13,12 +13,13 @@
       </v-row>
 
       <v-row justify="center">
-        <v-form lazy-validation="true" ref="form">
+        <v-form lazy-validation ref="form">
           <v-text-field
             v-model="email"
             :rules="emailRules"
             label="Email"
             required
+            full-width
           ></v-text-field>
 
           <v-text-field
@@ -27,15 +28,10 @@
             label="Password"
             type="password"
             required
-            full-width="60%"
+            full-width
           ></v-text-field>
 
-          <v-btn
-            class="ma-10"
-            rounded
-            color="primary"
-            width="20%"
-            @click="validate"
+          <v-btn class="mt-10" rounded color="primary" block @click="validate"
             >Login</v-btn
           >
         </v-form>
