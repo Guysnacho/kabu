@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Login from "../views/Login.vue";
 import Sign from "../views/Sign.vue";
+import PostSign from "../views/PostSign.vue";
 
 Vue.use(VueRouter);
 
@@ -16,19 +17,19 @@ const routes = [
   {
     path: "/login",
     name: "Login",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: Login
   },
 
   {
     path: "/sign",
     name: "Sign",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: Sign
+  },
+
+  {
+    path: "/sign/confirm",
+    name: "PostSign",
+    component: PostSign
   }
 ];
 
