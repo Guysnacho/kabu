@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app color="darkshades" dark>
+    <v-app-bar app color="darkshades">
       <div class="d-flex align-center">
         <v-img
           alt="Kabu Logo"
@@ -13,7 +13,7 @@
       </div>
 
       <v-spacer></v-spacer>
-      <v-btn @click="goHome" text>
+      <v-btn color="secondary" @click="goHome" text v-if="Authed">
         <span class="mr-2">Kabu Kabu</span>
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn>
@@ -41,7 +41,10 @@ export default {
 
   methods: {
     goHome() {
-      this.$router.push("/");
+      this.$router.replace("/");
+    },
+    Authed() {
+      this.store.getAuth();
     }
   }
 };
