@@ -12,24 +12,34 @@
         />
       </v-row>
 
-      <v-form lazy-validation="true" ref="form">
-        <v-text-field
-          v-model="email"
-          :rules="emailRules"
-          label="Email"
-          required
-          full-width="60%"
-        ></v-text-field>
+      <v-row justify="center">
+        <v-form lazy-validation="true" ref="form">
+          <v-text-field
+            v-model="email"
+            :rules="emailRules"
+            label="Email"
+            required
+          ></v-text-field>
 
-        <v-btn
-          class="ma-10"
-          rounded="true"
-          color="primary"
-          width="20%"
-          @click="validate"
-          >Login</v-btn
-        >
-      </v-form>
+          <v-text-field
+            v-model="password"
+            :rules="passRules"
+            label="Password"
+            type="password"
+            required
+            full-width="60%"
+          ></v-text-field>
+
+          <v-btn
+            class="ma-10"
+            rounded
+            color="primary"
+            width="20%"
+            @click="validate"
+            >Login</v-btn
+          >
+        </v-form>
+      </v-row>
     </v-content>
   </v-app>
 </template>
@@ -46,6 +56,12 @@ export default {
     emailRules: [
       v => !!v || "E-mail is required",
       v => /.+@.+\..+/.test(v) || "E-mail must be valid"
+    ],
+
+    password: "",
+    passRules: [
+      v => !!v || "Password is required",
+      v => v.length >= 4 || "Password must be longer than 4 characters"
     ]
   }),
 

@@ -5,7 +5,7 @@
         <v-img
           alt="Kabu logo"
           src="../assets/logo.png"
-          contain="false"
+          contain
           min-width="10%"
           max-width="50%"
           id="logo"
@@ -13,20 +13,13 @@
       </v-row>
 
       <v-row justify="center">
-        <v-btn
-          class="ma-10"
-          rounded="true"
-          color="primary"
-          width="20%"
-          @click="login"
+        <v-btn class="ma-10" rounded color="primary" width="20%" @click="login"
           >Login</v-btn
         >
       </v-row>
 
       <v-row justify="center">
-        <v-btn rounded="true" color="primary" width="20%" @click="sign"
-          >Sign Up</v-btn
-        >
+        <v-btn rounded color="primary" width="20%" @click="sign">Sign Up</v-btn>
       </v-row>
     </v-content>
   </v-app>

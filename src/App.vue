@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app color="lightaccent" dark>
+    <v-app-bar app color="darkshades" dark>
       <div class="d-flex align-center">
         <v-img
           alt="Kabu Logo"
@@ -13,7 +13,7 @@
       </div>
 
       <v-spacer></v-spacer>
-      <v-btn href="#" text>
+      <v-btn @click="goHome" text>
         <span class="mr-2">Kabu Kabu</span>
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn>
@@ -27,12 +27,22 @@
   </v-app>
 </template>
 
+<script src="/__/firebase/7.14.5/firebase-app.js"></script>
+<script src="/__/firebase/7.14.5/firebase-analytics.js"></script>
+<script src="/__/firebase/init.js"></script>
+
 <script>
 export default {
   name: "App",
 
   components: {},
 
-  data: () => ({})
+  data: () => ({}),
+
+  methods: {
+    goHome() {
+      this.$router.push("/");
+    }
+  }
 };
 </script>
