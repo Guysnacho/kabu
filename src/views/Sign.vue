@@ -103,6 +103,7 @@ export default {
         //submit details to server
         this.$store.signUp(this.user.email, this.user.password);
         //go to the next page
+        this.$router.replace("PostSign");
       }
     },
     passCheck(value) {
