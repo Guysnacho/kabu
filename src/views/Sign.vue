@@ -61,7 +61,7 @@
           color="primary"
           width="20%"
           @click="validate"
-          v-on="validate"
+          type="submit"
           >Join Kabu!</v-btn
         >
       </v-form>
@@ -75,7 +75,6 @@ export default {
   name: "Home",
 
   data: () => ({
-    valid: true,
     name: "",
     nameRules: [v => !!v || "Name is required"],
 
