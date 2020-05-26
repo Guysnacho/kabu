@@ -5,14 +5,14 @@
         <v-img
           alt="Kabu logo"
           src="../assets/logo.png"
-          contain="false"
+          contain
           min-width="10%"
           max-width="45%"
           id="logo"
         />
       </v-row>
 
-      <v-form lazy-validation ref="form" @submit="$emit(value)">
+      <v-form lazy-validation ref="form" @submit.prevent="validate">
         <v-col>
           <v-text-field
             v-model="user.name"
@@ -57,7 +57,7 @@
 
         <v-btn
           class="ma-10"
-          rounded="true"
+          rounded
           color="primary"
           width="20%"
           @click="validate"
@@ -104,7 +104,7 @@ export default {
     validate() {
       if (this.$refs.form.validate()) {
         //submit details to server
-        this.$store.signUp(this.$refs.form);
+        this.$store.signUp(this.user.email, this.user.password);
         //go to the next page
       }
     },
