@@ -98,12 +98,17 @@ export default {
   }),
 
   methods: {
+    goNext() {
+      this.$router.push("/sign/confirm");
+    },
     validate() {
       if (this.$refs.form.validate()) {
-        //submit details to server
-        this.$store.signUp(this.user.email, this.user.password);
+        //submit details to server Must be asynchronius
+        //this.$store.signUp(this.user.email, this.user.password);
         //go to the next page
-        this.$router.replace("PostSign");
+        this.goNext();
+      } else {
+        console.log("Invalid form");
       }
     },
     passCheck(value) {
