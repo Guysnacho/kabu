@@ -15,7 +15,7 @@
       <v-form lazy-validation ref="form" @submit="$emit(value)">
         <v-col>
           <v-text-field
-            v-model="name"
+            v-model="user.name"
             :rules="nameRules"
             label="Full Name"
             type="name"
@@ -25,7 +25,7 @@
 
         <v-col>
           <v-text-field
-            v-model="email"
+            v-model="user.email"
             :rules="emailRules"
             label="Email"
             type="email"
@@ -35,7 +35,7 @@
 
         <v-col>
           <v-text-field
-            v-model="password"
+            v-model="user.password"
             :rules="passRules"
             label="Password"
             type="password"
@@ -61,6 +61,7 @@
           color="primary"
           width="20%"
           @click="validate"
+          type="submit"
           >Join Kabu!</v-btn
         >
       </v-form>
@@ -74,16 +75,19 @@ export default {
   name: "Home",
 
   data: () => ({
-    name: "",
+    user: {
+      name: "",
+      email: "",
+      password: ""
+    },
+
     nameRules: [v => !!v || "Name is required"],
 
-    email: "",
     emailRules: [
       v => !!v || "E-mail is required",
       v => /.+@.+\..+/.test(v) || "E-mail must be valid"
     ],
 
-    password: "",
     confirm: "",
     passRules: [
       v => !!v || "Password is required",
@@ -100,6 +104,7 @@ export default {
     validate() {
       if (this.$refs.form.validate()) {
         //submit details to server
+        this.$store.signUp(this.$refs.form);
         //go to the next page
       }
     },
