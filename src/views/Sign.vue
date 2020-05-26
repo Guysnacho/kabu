@@ -94,10 +94,7 @@ export default {
       v => v.length >= 8 || "Password must be at least than 8 characters"
     ],
 
-    confirmRules: [
-      v => !!v || "Password is required",
-      v => v.length >= 8 || "Password must be valid"
-    ]
+    confirmRules: [v => !!v || "Password is required"]
   }),
 
   methods: {
@@ -110,7 +107,7 @@ export default {
     },
     passCheck(value) {
       // eslint-disable-next-line
-      return this.password == value || "Password is not identical";
+      return this.user.password === value ;
     }
   }
 };
