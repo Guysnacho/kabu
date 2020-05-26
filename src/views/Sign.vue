@@ -12,7 +12,7 @@
         />
       </v-row>
 
-      <v-form lazy-validation ref="form">
+      <v-form lazy-validation ref="form" @submit="$emit(value)">
         <v-col>
           <v-text-field
             v-model="name"
@@ -61,7 +61,6 @@
           color="primary"
           width="20%"
           @click="validate"
-          type="submit"
           >Join Kabu!</v-btn
         >
       </v-form>
