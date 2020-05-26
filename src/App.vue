@@ -13,7 +13,7 @@
       </div>
 
       <v-spacer></v-spacer>
-      <v-btn color="secondary" @click="goHome" text v-if="Authed">
+      <v-btn color="secondary" @click="goHome" text>
         <span class="mr-2">Kabu Kabu</span>
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn>
@@ -42,9 +42,6 @@ export default {
   methods: {
     goHome() {
       this.$router.replace("/");
-    },
-    Authed() {
-      return this.$store.getters.getAuth;
     }
   }
 };

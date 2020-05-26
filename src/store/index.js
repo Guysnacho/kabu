@@ -78,7 +78,7 @@ export default new Vuex.Store({
 
   getters: {
     getAuth: state => {
-      return state.authed;
+      return state.state.authed;
     }
   }
 });
