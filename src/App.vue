@@ -13,7 +13,7 @@
       </div>
 
       <v-spacer></v-spacer>
-      <v-btn href="#" text>
+      <v-btn @click="goHome" text>
         <span class="mr-2">Kabu Kabu</span>
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn>
@@ -33,6 +33,12 @@ export default {
 
   components: {},
 
-  data: () => ({})
+  data: () => ({}),
+
+  methods: {
+    goHome() {
+      this.$router.push("/");
+    }
+  }
 };
 </script>
