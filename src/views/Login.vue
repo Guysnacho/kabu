@@ -13,11 +13,12 @@
       </v-row>
 
       <v-row justify="center">
-        <v-form lazy-validation ref="form">
+        <v-form lazy-validation ref="form" @submit.prevent="validate">
           <v-text-field
             v-model="email"
             :rules="emailRules"
             label="Email"
+            type="email"
             required
             full-width
           ></v-text-field>
@@ -63,7 +64,9 @@ export default {
 
   methods: {
     validate() {
-      this.$refs.form.validate();
+      if (this.$refs.form.validate())
+        //this.router.replace(Main);
+        console.log("done");
     }
   }
 };
