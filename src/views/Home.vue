@@ -22,22 +22,37 @@
       </v-row>
     </v-app-bar>
 
-    <v-content>
-      <v-container></v-container>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, libero
-        dolore. Ullam fugit vitae totam dolores, voluptates impedit suscipit
-        error provident corporis, fugiat molestias quos expedita dicta
-        asperiores deleniti culpa.
-      </p>
-    </v-content>
+    <div style="height= 500px width=100%">
+      <div style="height: 200px overflow: auto;">
+        <l-map>
+          <l-tile-layer :url="url" />
+        </l-map>
+      </div>
+    </div>
   </v-app>
 </template>
 
 <script>
+import { LMap, LTileLayer } from "vue2-leaflet";
+
 export default {
+  name: "Home",
+
+  data() {
+    return {
+      url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+      center: [47.31322, -1.319482]
+    };
+  },
+
   created() {
     this.$emit("hide");
+  },
+
+  components: {
+    LMap,
+    LTileLayer
+    //LMarker
   }
 };
 </script>
