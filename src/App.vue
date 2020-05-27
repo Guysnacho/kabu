@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app color="darkshades">
+    <v-app-bar app color="primary">
       <div class="d-flex align-center">
         <v-img
           alt="Kabu Logo"
