@@ -39,12 +39,12 @@ export default {
 
   methods: {
     login() {
-      this.$router.push({ path: "/login" });
+      this.$router.replace({ path: "/login" });
       this.home = !this.home;
     },
 
     sign() {
-      this.$router.push({ path: "/sign" });
+      this.$router.replace({ path: "/sign" });
       this.home = !this.home;
     }
   },
