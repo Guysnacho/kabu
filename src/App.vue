@@ -13,7 +13,7 @@
       </div>
 
       <v-spacer></v-spacer>
-      <v-btn color="secondary" @click="goHome" text>
+      <v-btn color="secondary" v-if="!this.$store.home" @click="goHome" text>
         <span class="mr-2">Kabu Kabu</span>
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn>
@@ -37,11 +37,16 @@ export default {
 
   components: {},
 
-  data: () => ({}),
+  data: () => ({
+    home: true
+  }),
 
   methods: {
     goHome() {
       this.$router.replace("/");
+    },
+    change() {
+      this.home = true;
     }
   }
 };

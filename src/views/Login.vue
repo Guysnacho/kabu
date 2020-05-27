@@ -76,6 +76,7 @@ export default {
       if (this.$refs.form.validate()) {
         //Authenticate and login
         this.$store.dispatch("setAuth");
+        this.$emit("hide");
         this.$router.replace("/Home");
       } else {
         console.log("Login Error");
