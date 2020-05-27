@@ -1,9 +1,11 @@
 <template>
   <v-app>
-    <v-content></v-content>
+    <v-content> </v-content>
   </v-app>
 </template>
 
 <script>
-export default {};
+export default {
+  created: {}
+};
 </script>
