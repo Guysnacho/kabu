@@ -13,7 +13,17 @@
       </div>
 
       <v-spacer></v-spacer>
-      <v-btn color="secondary" v-if="!this.$store.home" @click="goHome" text>
+      <v-btn
+        color="secondary"
+        v-if="
+          this.$router.currentRoute == 'Splash' ||
+            this.$router.currentRoute == 'Login' ||
+            this.$router.currentRoute == 'Sign' ||
+            this.$router.currentRoute == 'PostSign'
+        "
+        @click="goHome"
+        text
+      >
         <span class="mr-2">Kabu Kabu</span>
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn>
