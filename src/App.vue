@@ -4,10 +4,10 @@
       app
       color="primary"
       v-if="
-        this.$router.currentRoute == 'Splash' ||
-          this.$router.currentRoute == 'Login' ||
-          this.$router.currentRoute == 'Sign' ||
-          this.$router.currentRoute == 'PostSign'
+        this.$route.path == '/' ||
+          this.$route.path == '/login' ||
+          this.$route.path == '/sign' ||
+          this.$route.path == '/sign/confirm'
       "
     >
       <div class="d-flex align-center">
