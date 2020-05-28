@@ -101,7 +101,7 @@ export default {
 
   methods: {
     goNext() {
-      this.$router.push("/sign/confirm");
+      this.$router.replace("/sign/confirm");
     },
     validate() {
       if (this.$refs.form.validate()) {

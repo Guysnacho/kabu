@@ -7,5 +7,7 @@ module.exports = {
       background_color: "#F5F2F5"
     }
   },
-  transpileDependencies: ["vuetify"]
+
+  transpileDependencies: ["vuetify"],
+  productionSourceMap: false
 };

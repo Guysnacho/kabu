@@ -1,6 +1,15 @@
 <template>
   <v-app>
-    <v-app-bar app color="darkshades">
+    <v-app-bar
+      app
+      color="primary"
+      v-if="
+        this.$route.path == '/' ||
+          this.$route.path == '/login' ||
+          this.$route.path == '/sign' ||
+          this.$route.path == '/sign/confirm'
+      "
+    >
       <div class="d-flex align-center">
         <v-img
           alt="Kabu Logo"
@@ -37,11 +46,16 @@ export default {
 
   components: {},
 
-  data: () => ({}),
+  data: () => ({
+    home: true
+  }),
 
   methods: {
     goHome() {
       this.$router.replace("/");
+    },
+    change() {
+      this.home = true;
     }
   }
 };

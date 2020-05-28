@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "node_modules\\vuetify\\src\\components"
+		},
+		{
+			"path": "..\\Kabu Assets\\Layouts"
 		}
 	]
 }
