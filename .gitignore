@@ -6,6 +6,7 @@ package.json
 package-lock.json
 .firebaserc
 .cache
+.json
 
 # local env files
 .env.local
