@@ -22,13 +22,23 @@
       </v-row>
     </v-app-bar>
 
-    <div style="height= 500px width=100%">
-      <div style="height: 200px overflow: auto;">
-        <l-map>
+    <v-content>
+      <v-card>
+        <l-map
+          style="height: 80%; width: 100%"
+          :maxBounds="maxbounds"
+          :zoom="zoom"
+          :center="center"
+          :minZoom="5"
+          renderer="padding='0'"
+          @update:zoom="zoomUpdated"
+          @update:center="centerUpdated"
+          @update:bounds="boundsUpdated"
+        >
           <l-tile-layer :url="url" />
         </l-map>
-      </div>
-    </div>
+      </v-card>
+    </v-content>
   </v-app>
 </template>
 
@@ -41,12 +51,27 @@ export default {
   data() {
     return {
       url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-      center: [47.31322, -1.319482]
+      zoom: 3,
+      center: [39.964528, -82.954266],
+      bounds: null,
+      maxbounds: [50.22703, -140.74953, 24.758095, -60.593278]
     };
   },
 
   created() {
     this.$emit("hide");
+  },
+
+  methods: {
+    zoomUpdated(zoom) {
+      this.zoom = zoom;
+    },
+    centerUpdated(center) {
+      this.center = center;
+    },
+    boundsUpdated(bounds) {
+      this.bounds = bounds;
+    }
   },
 
   components: {
