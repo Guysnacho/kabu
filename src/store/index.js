@@ -1,9 +1,9 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import { firestorePlugin } from "vuefire";
 import * as firebase from "firebase/app";
+import { vuexfireMutations } from "vuexfire";
 
-Vue.use(Vuex, firestorePlugin);
+Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
@@ -58,7 +58,8 @@ export default new Vuex.Store({
     },
     CHANGEAUTH(state) {
       state.authed = !state.authed;
-    }
+    },
+    ...vuexfireMutations
   },
 
   actions: {
