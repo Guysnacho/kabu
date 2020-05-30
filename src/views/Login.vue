@@ -75,7 +75,7 @@ export default {
     validate() {
       if (this.$refs.form.validate()) {
         //Authenticate and login
-        //this.$store.dispatch("setAuth");
+        this.$store.dispatch("loginToApp");
         this.$emit("hide");
         this.$router.replace("/Home");
       } else {
