@@ -1,13 +1,16 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import db from "./";
+import firebase from "firebase/app";
+import "firebase/auth";
 import { vuexfireMutations } from "vuexfire";
 
 Vue.use(Vuex);
 
+// Get a Firestore instance
+//const db = firebase.initializeApp({ projectId: "kabu-65fa6" }).firestore();
+
 export default new Vuex.Store({
   state: {
-    database: db,
     localuser: "",
     authed: false,
     props: {
@@ -21,6 +24,23 @@ export default new Vuex.Store({
     CHANGEAUTH(state) {
       state.authed = !state.authed;
     },
+    SIGN(state, email, password) {
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(email, password)
+        .catch(function(error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          if (errorCode == "auth/weak-password") {
+            alert("The password is too weak.");
+          } else {
+            alert(errorMessage);
+          }
+          console.log(error);
+          // ...
+        });
+    },
     ...vuexfireMutations
   },
 
@@ -28,8 +48,8 @@ export default new Vuex.Store({
     loginToApp(context) {
       context.commit("LOGIN");
     },
-    signUp(context) {
-      context.commit("SIGN");
+    signUp(context, email, password) {
+      context.commit("SIGN", context, email, password);
     },
     checkUser(context) {
       context.commit("CHANGESTATE", context);
