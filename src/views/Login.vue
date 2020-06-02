@@ -75,7 +75,10 @@ export default {
     validate() {
       if (this.$refs.form.validate()) {
         //Authenticate and login
-        this.$store.dispatch("loginToApp");
+        this.$store.dispatch("loginToApp", {
+          email: this.user.email,
+          password: this.user.password
+        });
         this.$emit("hide");
         this.$router.replace("/Home");
       } else {
