@@ -40,6 +40,7 @@
             label="Password"
             type="password"
             hint="At least 7 characters"
+            aria-autocomplete="new-password"
             counter
             required
           ></v-text-field>
@@ -52,6 +53,7 @@
             label="Confirm password"
             type="password"
             required
+            aria-autocomplete="new-password"
           ></v-text-field>
         </v-col>
 
@@ -106,7 +108,10 @@ export default {
     validate() {
       if (this.$refs.form.validate()) {
         //submit details to server Must be asynchronius
-        //this.$store.signUp(this.user.email, this.user.password);
+        this.$store.dispatch("signUp", {
+          email: this.user.email,
+          password: this.user.password
+        });
         //go to the next page
         this.goNext();
       } else {
