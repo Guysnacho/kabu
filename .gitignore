@@ -7,6 +7,7 @@ package-lock.json
 .firebaserc
 .cache
 .json
+/src/store
 
 # local env files
 .env.local
