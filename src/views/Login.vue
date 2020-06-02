@@ -79,8 +79,11 @@ export default {
           email: this.user.email,
           password: this.user.password
         });
-        this.$emit("hide");
-        this.$router.replace("/Home");
+        if (this.$store.getters.getAuth) {
+          this.$router.replace("/Home");
+        } else {
+          alert("You haven't been logged.");
+        }
       } else {
         console.log("Login Error");
       }
