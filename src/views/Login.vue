@@ -51,9 +51,12 @@
 
 <script>
 // @ is an alias to /src
+import { mapState } from "vuex";
 
 export default {
   name: "Home",
+
+  computed: mapState(["authed"]),
 
   data: () => ({
     user: {
@@ -75,9 +78,16 @@ export default {
     validate() {
       if (this.$refs.form.validate()) {
         //Authenticate and login
-        //this.$store.dispatch("setAuth");
-        this.$emit("hide");
-        this.$router.replace("/Home");
+        this.$store.dispatch("loginToApp", {
+          email: this.user.email,
+          password: this.user.password
+        });
+        this.$store.dispatch("setAuth");
+        if (this.authed) {
+          this.$router.replace("/Home");
+        } else {
+          alert("You haven't been logged in.");
+        }
       } else {
         console.log("Login Error");
       }
