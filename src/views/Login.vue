@@ -85,8 +85,9 @@ export default {
         this.$store.dispatch("setAuth");
         if (this.authed) {
           this.$router.replace("/Home");
+          console.log(this.authed);
         } else {
-          alert("You haven't been logged in.");
+          alert("You haven't been logged.");
         }
       } else {
         console.log("Login Error");
