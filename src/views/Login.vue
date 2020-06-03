@@ -86,8 +86,7 @@ export default {
         if (this.authed) {
           this.$router.replace("/Home");
         } else {
-          console.log(this.authed);
-          alert("You haven't been logged.");
+          alert("You haven't been logged in.");
         }
       } else {
         console.log("Login Error");
