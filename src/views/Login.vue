@@ -75,19 +75,18 @@ export default {
   }),
 
   methods: {
-    validate() {
+    async validate() {
       if (this.$refs.form.validate()) {
         //Authenticate and login
-        this.$store.dispatch("loginToApp", {
-          email: this.user.email,
-          password: this.user.password
-        });
+        await this.$store
+          .dispatch("loginToApp", {
+            email: this.user.email,
+            password: this.user.password
+          })
+          .catch(err => console.log(err));
         this.$store.dispatch("setAuth");
         if (this.authed) {
           this.$router.replace("/Home");
-          console.log(this.authed);
-        } else {
-          alert("You haven't been logged.");
         }
       } else {
         console.log("Login Error");
