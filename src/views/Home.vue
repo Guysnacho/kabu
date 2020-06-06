@@ -16,7 +16,7 @@
           position="top"
         ></v-img>
       </template>
-      <v-app-bar-nav-icon dark></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click="drawer = !drawer" dark></v-app-bar-nav-icon>
       <v-row justify="center">
         <v-toolbar-title>Username</v-toolbar-title>
       </v-row>
@@ -40,6 +40,33 @@
         </l-map>
       </div>
     </v-content>
+
+    <v-navigation-drawer v-if="drawer">
+      <v-list dense nav class="py-0">
+        <v-list-item two-line :class="'px-0'">
+          <v-list-item-avatar>
+            <img src="https://randomuser.me/api/portraits/men/64.jpg" />
+          </v-list-item-avatar>
+
+          <v-list-item-content>
+            <v-list-item-title>Kabu</v-list-item-title>
+            <v-list-item-subtitle>Username</v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-divider></v-divider>
+
+        <v-list-item v-for="item in items" :key="item.title" link>
+          <v-list-item-icon>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content>
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
   </v-app>
 </template>
 
@@ -51,6 +78,11 @@ export default {
 
   data() {
     return {
+      items: [
+        { title: "Dashboard", icon: "mdi-view-dashboard" },
+        { title: "Photos", icon: "mdi-image" },
+        { title: "About", icon: "mdi-help-box" }
+      ],
       url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
       zoom: 11,
       center: [0, 0],
@@ -61,7 +93,8 @@ export default {
       maxbounds: latLngBounds([
         [40.70081290280357, -74.26963806152345],
         [40.82991732677597, -74.08716201782228]
-      ])
+      ]),
+      drawer: false
     };
   },
 
