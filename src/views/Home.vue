@@ -23,10 +23,11 @@
     </v-app-bar>
 
     <v-content>
-      <v-card>
+      <div>
         <l-map
-          style="height: 80%; width: 100%"
+          style="height: 500px; width: 100%"
           :maxBounds="maxbounds"
+          :bounds="bounds"
           :zoom="zoom"
           :center="center"
           :minZoom="5"
@@ -37,24 +38,30 @@
         >
           <l-tile-layer :url="url" />
         </l-map>
-      </v-card>
+      </div>
     </v-content>
   </v-app>
 </template>
 
 <script>
 import { LMap, LTileLayer } from "vue2-leaflet";
-
+import { latLngBounds } from "leaflet";
 export default {
   name: "Home",
 
   data() {
     return {
       url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-      zoom: 3,
-      center: [39.964528, -82.954266],
-      bounds: null,
-      maxbounds: [50.22703, -140.74953, 24.758095, -60.593278]
+      zoom: 11,
+      center: [0, 0],
+      bounds: latLngBounds([
+        [40.70081290280357, -74.26963806152345],
+        [40.82991732677597, -74.08716201782228]
+      ]),
+      maxbounds: latLngBounds([
+        [40.70081290280357, -74.26963806152345],
+        [40.82991732677597, -74.08716201782228]
+      ])
     };
   },
 
