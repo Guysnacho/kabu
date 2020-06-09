@@ -21,7 +21,7 @@
       </v-row>
     </v-app-bar>
 
-    <v-navigation-drawer v-model="drawer" absolute temporary>
+    <v-navigation-drawer v-model="drawer" absolute temporary style="z-index: 1">
       <v-list dense nav class="py-0">
         <v-list-item two-line :class="'px-0'">
           <v-list-item-avatar>
@@ -48,7 +48,7 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-content style="padding-top:0" class="overflow-hidden">
+    <v-content style="padding-top:0; position: sticky;" class="overflow-hidden">
       <div>
         <l-map
           style="height: 500px; width: 100%"
@@ -57,7 +57,6 @@
           :zoom="zoom"
           :center="center"
           :minZoom="5"
-          renderer="padding='0'"
           @update:zoom="zoomUpdated"
           @update:center="centerUpdated"
           @update:bounds="boundsUpdated"
