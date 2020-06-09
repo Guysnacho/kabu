@@ -6,7 +6,6 @@
       elevation="10"
       color="primary"
       src="https://cdn.pixabay.com/photo/2019/04/18/07/51/dalat-4136346_960_720.jpg"
-      fixed
     >
       <template v-slot:img="{ props }">
         <v-img
@@ -22,26 +21,7 @@
       </v-row>
     </v-app-bar>
 
-    <v-content>
-      <div>
-        <l-map
-          style="height: 500px; width: 100%"
-          :maxBounds="maxbounds"
-          :bounds="bounds"
-          :zoom="zoom"
-          :center="center"
-          :minZoom="5"
-          renderer="padding='0'"
-          @update:zoom="zoomUpdated"
-          @update:center="centerUpdated"
-          @update:bounds="boundsUpdated"
-        >
-          <l-tile-layer :url="url" />
-        </l-map>
-      </div>
-    </v-content>
-
-    <v-navigation-drawer v-if="drawer">
+    <v-navigation-drawer v-model="drawer" absolute temporary>
       <v-list dense nav class="py-0">
         <v-list-item two-line :class="'px-0'">
           <v-list-item-avatar>
@@ -67,6 +47,25 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
+
+    <v-content style="padding-top:0" class="overflow-hidden">
+      <div>
+        <l-map
+          style="height: 500px; width: 100%"
+          :maxBounds="maxbounds"
+          :bounds="bounds"
+          :zoom="zoom"
+          :center="center"
+          :minZoom="5"
+          renderer="padding='0'"
+          @update:zoom="zoomUpdated"
+          @update:center="centerUpdated"
+          @update:bounds="boundsUpdated"
+        >
+          <l-tile-layer :url="url" />
+        </l-map>
+      </div>
+    </v-content>
   </v-app>
 </template>
 
