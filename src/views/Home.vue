@@ -83,9 +83,12 @@ export default {
     return {
       items: [
         { title: "Dashboard", icon: "mdi-view-dashboard", path: "/Home" },
-        { title: "Profile", icon: "mdi-account", path: "/Home" },
-        { title: "Payment", icon: "mdi-credit-card-multiple", path: "/Home" },
-        { title: "Settings", icon: "mdi-cog", path: "/Home" }
+        { title: "Profile", icon: "mdi-account", path: "/Home/Profile" },
+        {
+          title: "Payment",
+          icon: "mdi-credit-card-multiple",
+          path: "/Home/Payment"
+        }
       ],
       url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
       zoom: 11,

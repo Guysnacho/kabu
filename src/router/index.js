@@ -5,6 +5,8 @@ import Login from "../views/Login.vue";
 import Sign from "../views/Sign.vue";
 import PostSign from "../views/PostSign.vue";
 import Home from "../views/Home.vue";
+import Profile from "../views/Profile.vue";
+import Payment from "../views/Payment.vue";
 
 Vue.use(VueRouter);
 
@@ -37,6 +39,18 @@ const routes = [
     path: "/Home",
     name: "Home",
     component: Home
+  },
+
+  {
+    path: "/Home/Profile",
+    name: "Profile",
+    component: Profile
+  },
+
+  {
+    path: "/Home/Payment",
+    name: "Payment",
+    component: Payment
   }
 ];
 
