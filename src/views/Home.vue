@@ -36,7 +36,12 @@
 
         <v-divider></v-divider>
 
-        <v-list-item v-for="item in items" :key="item.title" link>
+        <v-list-item
+          v-for="item in items"
+          :key="item.title"
+          link
+          :to="item.path"
+        >
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-icon>
@@ -77,9 +82,10 @@ export default {
   data() {
     return {
       items: [
-        { title: "Dashboard", icon: "mdi-view-dashboard" },
-        { title: "Photos", icon: "mdi-image" },
-        { title: "About", icon: "mdi-help-box" }
+        { title: "Dashboard", icon: "mdi-view-dashboard", path: "/Home" },
+        { title: "Profile", icon: "mdi-account", path: "/Home" },
+        { title: "Payment", icon: "mdi-credit-card-multiple", path: "/Home" },
+        { title: "Settings", icon: "mdi-cog", path: "/Home" }
       ],
       url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
       zoom: 11,
