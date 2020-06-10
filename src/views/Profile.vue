@@ -52,6 +52,17 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
+
+    <v-content>
+      <v-row justify="center">
+        <v-avatar size="75">
+          <img src="https://randomuser.me/api/portraits/men/64.jpg" />
+        </v-avatar>
+      </v-row>
+      <v-spacer></v-spacer>
+      <v-divider></v-divider>
+      <v-spacer></v-spacer>
+    </v-content>
   </v-app>
 </template>
 
