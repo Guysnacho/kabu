@@ -42,13 +42,13 @@ const routes = [
   },
 
   {
-    path: "/Home/Profile",
+    path: "/Profile",
     name: "Profile",
     component: Profile
   },
 
   {
-    path: "/Home/Payment",
+    path: "/Payment",
     name: "Payment",
     component: Payment
   }
