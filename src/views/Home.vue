@@ -53,7 +53,11 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-content style="padding-top:0; position: sticky;" class="overflow-hidden">
+    <v-content
+      style="padding-top:0;
+      position: sticky;"
+      class="overflow-hidden my-auto"
+    >
       <div>
         <l-map
           style="height: 500px; width: 100%"
@@ -61,7 +65,7 @@
           :bounds="bounds"
           :zoom="zoom"
           :center="center"
-          :minZoom="5"
+          :minZoom="10"
           @update:zoom="zoomUpdated"
           @update:center="centerUpdated"
           @update:bounds="boundsUpdated"
