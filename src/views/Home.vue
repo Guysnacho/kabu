@@ -71,14 +71,28 @@
           @update:bounds="boundsUpdated"
         >
           <l-tile-layer :url="url" />
+          <l-marker :lat-lng="markerLatLng"></l-marker>
         </l-map>
       </div>
+      <v-row justify="center">
+        <v-form>
+          <v-text-field
+            label="Destination"
+            placeholder="400 Broad St. Seattle, Washington"
+            outlined
+            class="mt-3"
+            id="address"
+            v-model="destination"
+          ></v-text-field>
+          <v-btn rounded block color="primary">Submit</v-btn>
+        </v-form>
+      </v-row>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import { LMap, LTileLayer } from "vue2-leaflet";
+import { LMap, LTileLayer, LMarker } from "vue2-leaflet";
 import { latLngBounds } from "leaflet";
 export default {
   name: "Home",
@@ -105,7 +119,9 @@ export default {
         [41.67639, -84.825106],
         [38.431421, -80.430575]
       ]),
-      drawer: false
+      markerLatLng: [],
+      drawer: false,
+      destination: ""
     };
   },
 
@@ -127,8 +143,8 @@ export default {
 
   components: {
     LMap,
-    LTileLayer
-    //LMarker
+    LTileLayer,
+    LMarker
   }
 };
 </script>
