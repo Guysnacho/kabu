@@ -114,8 +114,8 @@ export default {
         username: "Username",
         tripnum: 15,
         phone: 6145925612,
-        home: "15738 Boonridge Rd Houston TX",
-        work: "2170 Rushmore Ln Sunbury OH"
+        home: "400 Broad St. Seattle, Washington",
+        work: "400 Broad St. Seattle, Washington"
       }
     };
   }
