@@ -59,32 +59,32 @@
           <img src="https://randomuser.me/api/portraits/men/64.jpg" />
         </v-avatar>
       </v-row>
-      <v-card elevation="7">
+      <v-card elevation="7" class="ma-auto mt-5" max-width="75%">
         <v-list disabled color="primary" dark>
-          <v-list-item>
+          <v-list-item class="text-center">
             <v-list-item-content>
               <v-list-item-title>{{ user.username }}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
-          <v-list-item two-line>
+          <v-list-item two-line class="text-center">
             <v-list-item-content>
               <v-list-item-title># of Trips - </v-list-item-title>
               <v-list-item-subtitle>{{ user.tripnum }}</v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
-          <v-list-item two-line>
+          <v-list-item two-line class="text-center">
             <v-list-item-content>
               <v-list-item-title>Phone number - </v-list-item-title>
               <v-list-item-subtitle>{{ user.phone }}</v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
-          <v-list-item two-line>
+          <v-list-item two-line class="text-center">
             <v-list-item-content>
               <v-list-item-title>Home address</v-list-item-title>
               <v-list-item-subtitle>{{ user.home }}</v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
-          <v-list-item two-line>
+          <v-list-item two-line class="text-center">
             <v-list-item-content>
               <v-list-item-title>Work address</v-list-item-title>
               <v-list-item-subtitle>{{ user.work }}</v-list-item-subtitle>
